@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import APIClient, { FetchResponse } from "../services/api-client"; // Assuming APIClient is in the same directory
+import APIClient from "../services/api-client"; // Assuming APIClient is in the same directory
 
 export interface Employee {
   id: string;

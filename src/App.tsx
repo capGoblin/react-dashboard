@@ -1,6 +1,6 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+// import reactLogo from "./assets/react.svg";
+// import viteLogo from "/vite.svg";
 import { FiSearch } from "react-icons/fi";
 // import "./App.css";
 import "./styles/Home.scss";
@@ -11,8 +11,8 @@ import Card from "./components/Card";
 import useEmployee from "./hooks/useEmployee";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const { employees, error, isLoading } = useEmployee();
+  // const [count, setCount] = useState(0);
+  const { employees } = useEmployee();
   const [currentPage, setCurrentPage] = useState(1);
   const employeesPerPage = 10;
 

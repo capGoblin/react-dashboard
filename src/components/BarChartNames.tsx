@@ -3,7 +3,7 @@ import * as d3 from "d3";
 import useEmployee from "../hooks/useEmployee";
 
 const BarChartNames: React.FC = () => {
-  const { employees, error, isLoading } = useEmployee();
+  const { employees, isLoading } = useEmployee();
   const svgRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {

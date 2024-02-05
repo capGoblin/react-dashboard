@@ -108,7 +108,7 @@ const BarChartNames: React.FC = () => {
     <div>
       {/* <h1>Employee Dashboard</h1> */}
       {isLoading && <p>Loading...</p>}
-      {error && <p>Error (Too many requests): {error}</p>}
+      {/* {error && <p>Error (Too many requests): {error}</p>} */}
       {/* Tooltip */}
       <div id="tooltip" style={{ opacity: 0, position: "absolute" }}></div>
 

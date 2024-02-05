@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
+<<<<<<< HEAD
 import APIClient from "../services/api-client"; // Assuming APIClient is in the same directory
+=======
+import APIClient, { FetchResponse } from "../services/api-client"; // Assuming APIClient is in the same directory
+>>>>>>> 1b2a8531410927b7d1284682c3729567d3999725
 
 export interface Employee {
   id: string;
@@ -24,8 +28,13 @@ const useEmployee = () => {
         const result = await apiClient.getAll();
         console.log(result);
         setEmployees(result.data);
+<<<<<<< HEAD
       } catch (error: any) {
         setError(error || "An error occurred");
+=======
+      } catch (error) {
+        setError((error as Error).message || "An error occurred");
+>>>>>>> 1b2a8531410927b7d1284682c3729567d3999725
       } finally {
         setIsLoading(false);
       }
@@ -38,6 +47,7 @@ const useEmployee = () => {
 };
 
 export default useEmployee;
+<<<<<<< HEAD
 
 // import { useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
@@ -69,3 +79,5 @@ export default useEmployee;
 // };
 
 // export default EmployeeList;
+=======
+>>>>>>> 1b2a8531410927b7d1284682c3729567d3999725

@@ -2,16 +2,13 @@ import { useState } from "react";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 import { FiSearch } from "react-icons/fi";
-// import "./App.css";
 import "./styles/Home.scss";
-// import "./styles/Card.scss";
 import BarChartNames from "./components/BarChartNames";
 import BarChartAge from "./components/BarChartAge";
 import Card from "./components/Card";
 import useEmployee from "./hooks/useEmployee";
 
 function App() {
-  // const [count, setCount] = useState(0);
   const { employees } = useEmployee();
   const [currentPage, setCurrentPage] = useState(1);
   const employeesPerPage = 10;
@@ -74,8 +71,6 @@ function App() {
         <span>Page {currentPage}</span>
         <button onClick={handleNextPage}>Next</button>
       </div>
-      {/* </div> */}
-      {/* // </div> */}
     </>
   );
 }

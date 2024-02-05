@@ -9,7 +9,7 @@ export interface Employee {
   profile_image: string;
 }
 const BarChartAge: React.FC = () => {
-  const { employees, error, isLoading } = useEmployee();
+  const { employees, isLoading } = useEmployee();
   const svgRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
@@ -25,7 +25,6 @@ const BarChartAge: React.FC = () => {
 
     const svg = d3.select(svgRef.current);
 
-    // const margin = { top: 20, right: 20, bottom: 30, left: 40 };
     const margin = { top: 20, right: 0, bottom: 30, left: 60 };
 
     const width = 600 - margin.left - margin.right;
@@ -87,8 +86,6 @@ const BarChartAge: React.FC = () => {
   return (
     <div>
       {isLoading && <p>Loading...</p>}
-      {/* {error && <p>Error (Too many requests): {error}</p>} */}
-      {/* Tooltip */}
       <div id="tooltip" style={{ opacity: 0, position: "absolute" }}></div>
 
       <svg

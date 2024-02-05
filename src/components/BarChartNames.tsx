@@ -11,19 +11,16 @@ const BarChartNames: React.FC = () => {
     if (!employees) return;
     // console.log(employees);
 
-    // Extracting necessary data for the bar chart
     const data = employees.map((employee) => ({
       name: employee.employee_name,
       age: parseInt(employee.employee_age),
       salary: parseInt(employee.employee_salary),
     }));
 
-    // Set up SVG dimensions and margins
     const width = 600;
     const height = 400;
     const margin = { top: 20, right: 20, bottom: 50, left: 50 };
 
-    // Adjusted scales to consider margins
     const xScale = d3
       .scaleBand()
       .domain(data.map((d) => d.name))
@@ -35,10 +32,8 @@ const BarChartNames: React.FC = () => {
       .domain([0, d3.max(data, (d) => d.salary)!])
       .range([height - margin.bottom, margin.top]);
 
-    // Create the SVG container
     const svg = d3.select(svgRef.current);
 
-    // Create and render the bars
     svg
       .selectAll("rect")
       .data(data)
@@ -49,7 +44,6 @@ const BarChartNames: React.FC = () => {
       .attr("width", xScale.bandwidth())
       .attr("height", (d) => height - margin.bottom - yScale(d.salary))
       .attr("fill", "blue")
-      // Add tooltips on hover
       .on("mouseover", (event, d) => {
         const tooltip = d3.select("#tooltip");
         const containerElement = document.getElementById("chart-container");
@@ -69,7 +63,6 @@ const BarChartNames: React.FC = () => {
         tooltip.transition().duration(500).style("opacity", 0);
       });
 
-    // Create x-axis
     svg
       .append("g")
       .attr("transform", `translate(0, ${height - margin.bottom})`)
@@ -80,20 +73,13 @@ const BarChartNames: React.FC = () => {
       .attr("dy", "0.15em")
       .attr("transform", "rotate(-45)");
 
-    // Create y-axis
     svg
       .append("g")
       .attr("transform", `translate(${margin.left},0)`)
       .call(d3.axisLeft(yScale));
 
-    // X-axis label
-    svg
-      .append("text")
-      // .attr("transform", `translate(${width / 2}, ${height - 10})`) // Adjust position as needed
-      .style("text-anchor", "middle")
-      .text("Employee Name");
+    svg.append("text").style("text-anchor", "middle").text("Employee Name");
 
-    // Y-axis label
     svg
       .append("text")
       .attr("transform", "rotate(-90)")
@@ -106,18 +92,10 @@ const BarChartNames: React.FC = () => {
 
   return (
     <div>
-      {/* <h1>Employee Dashboard</h1> */}
       {isLoading && <p>Loading...</p>}
-      {/* {error && <p>Error (Too many requests): {error}</p>} */}
-      {/* Tooltip */}
       <div id="tooltip" style={{ opacity: 0, position: "absolute" }}></div>
 
-      <svg
-        ref={svgRef}
-        // style={{ margin: "80px" }}
-        width={600}
-        height={400}
-      ></svg>
+      <svg ref={svgRef} width={600} height={400}></svg>
     </div>
   );
 };

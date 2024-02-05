@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import APIClient from "../services/api-client"; // Assuming APIClient is in the same directory
-
+import APIClient from "../services/api-client";
 export interface Employee {
   id: string;
   employee_name: string;

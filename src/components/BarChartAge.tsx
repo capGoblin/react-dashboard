@@ -87,7 +87,7 @@ const BarChartAge: React.FC = () => {
   return (
     <div>
       {isLoading && <p>Loading...</p>}
-      {error && <p>Error (Too many requests): {error}</p>}
+      {/* {error && <p>Error (Too many requests): {error}</p>} */}
       {/* Tooltip */}
       <div id="tooltip" style={{ opacity: 0, position: "absolute" }}></div>
 

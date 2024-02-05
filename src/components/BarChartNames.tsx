@@ -7,9 +7,7 @@ const BarChartNames: React.FC = () => {
   const svgRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
-    // console.log(employees);
     if (!employees) return;
-    // console.log(employees);
 
     const data = employees.map((employee) => ({
       name: employee.employee_name,
